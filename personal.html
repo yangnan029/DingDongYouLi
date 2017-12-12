@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>叮咚有礼---个人中心</title>
     <link rel="stylesheet" href="index.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+    </script>
 </head>
 
 <body>
@@ -49,7 +51,7 @@
             <span>您好，kore.倩</span>
         </p>
         <ul class="title_list">
-            <li>
+            <li class="active">
                 <a href="#">我的订单</a>
             </li>
             <li>
@@ -65,7 +67,7 @@
                 <a href="#">密码修改</a>
             </li>
         </ul>
-        <div class="product_box">
+        <div class="product_box shou">
             <ul class="product_box_tit clearfix">
                 <li class="check">
                     <input type="checkbox" name="" id="" value="全选">全选</li>
@@ -90,25 +92,79 @@
                 <p class="address">送货地址：xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
             </ul>
         </div>
-        <div class="basic_info">
+        <div class="basic_info shou">
             <div class="info_list">
 
-                <div class="basic_name">
+                <div class="basic_name clearfix">
                     <span>昵称</span>
                     <input type="text" value="八月">
-                    <span>修改</span>
+                    <span class="change">修改</span>
                 </div>
-                <div class="basic_name">
+                <div class="basic_name clearfix">
                     <span>邮箱地址</span>
                     <input type="text" value="1017848476@qq.com">
-                    <span>修改</span>
+                    <span class="change">修改</span>
                 </div>
-                <div class="basic_name">
+                <div class="basic_name clearfix">
                     <span>手机号码</span>
                     <input type="text" value="15281083076">
-                    <span>修改</span>
+                    <span class="change">修改</span>
                 </div>
-                <button>保存</button>
+                <p class="save_btn">
+                    <button>保存</button>
+                </p>
+            </div>
+        </div>
+        <div class="my_quan shou">
+            <ul class="quan_list_tit">
+                <li>未使用(4)</li>
+                <li>已使用(1)</li>
+                <li>已过期(2)</li>
+            </ul>
+            <ul class="quan_list">
+                <li>
+                    <p>￥40</p>
+                    <p>【消费满200元可用】</p>
+                    <p>2016-1-11——2016-2-22</p>
+                </li>
+                <li>
+                    <p>￥40</p>
+                    <p>【消费满200元可用】</p>
+                    <p>2016-1-11——2016-2-22</p>
+                </li>
+                <li>
+                    <p>￥40</p>
+                    <p>【消费满200元可用】</p>
+                    <p>2016-1-11——2016-2-22</p>
+                </li>
+                <li>
+                    <p>￥40</p>
+                    <p>【消费满200元可用】</p>
+                    <p>2016-1-11——2016-2-22</p>
+                </li>
+            </ul>
+        </div>
+        <div class="my_talking shou">
+            我的留言
+        </div>
+        <div class="basic_info2 shou">
+            <div class="info_list">
+
+                <div class="basic_name clearfix">
+                    <span>原密码</span>
+                    <input type="password" value="">
+                </div>
+                <div class="basic_name clearfix">
+                    <span>新密码</span>
+                    <input type="password" value="">
+                </div>
+                <div class="basic_name clearfix">
+                    <span>确认新密码</span>
+                    <input type="password" value="">
+                </div>
+                <p class="save_btn">
+                    <button>保存</button>
+                </p>
             </div>
         </div>
     </div>
@@ -126,6 +182,26 @@
             <img src="http://www.17sucai.com/preview/315163/2017-11-17/ding/img/footer_p2.jpg" alt="">
         </div>
     </div>
+    <script>
+        $(".title_list li").on('click', function (index) {
+            $(this).addClass("active").siblings().removeClass("active");
+            //$(this).addClass("active")
+            console.log($.trim($(this).text()))
+            var x = $.trim($(this).text());
+            $(".shou").hide();
+            if (x == "我的订单") {
+                $(".product_box").show();
+            }else if(x=="基本信息"){
+                $(".basic_info").show();
+            }else if(x=="我的优惠券"){
+                $(".my_quan").show();
+            }else if(x=="我的留言"){
+                $(".my_talking").show();
+            }else if(x=="密码修改"){
+                $(".basic_info2").show();
+            }
+        })
+    </script>
 </body>
 
 </html>
